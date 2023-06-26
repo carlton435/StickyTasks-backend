@@ -10,23 +10,17 @@ const verifyToken = (req, response) => {
             response.json({
                 status: 0,
                 message: 'Cannot find the user',
-            })
+            });
             return;
         }
 
-        if (res.length && res[0].username === username) {
-            response.json({
-                status: 1,
-                message: 'user found',
-                username
-            })
-        } else {
-            response.json({
-                status: 0,
-                message: 'user not found'
-            })
-        }
-    })
-}
+        const userFound = res.length && res[0].username === username;
+        response.json({
+            status: userFound ? 1 : 0,
+            message: userFound ? 'user found' : 'user not found',
+            username: userFound ? username : undefined,
+        });
+    });
+};
 
 export default verifyToken;

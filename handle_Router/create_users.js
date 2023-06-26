@@ -32,15 +32,16 @@ const createUser = (req, res) => {
                     username,
                     token,
                     id: result.insertId
-                })
-            })
-        })
+                });
+            });
+        });
     } catch (error) {
+        console.error('An error occurred:', error);
         res.json({
             status: 0,
             message: 'An error occurred',
         });
     }
-}
+};
 
-export default createUser
+export default createUser;
