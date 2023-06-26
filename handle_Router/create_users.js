@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const addUserQuery = 'INSERT INTO stickytasks.userinformation (username, password, token) VALUES (?, ?, ?)';
 
-export const createUser = (req, res, next) => {
+const createUser = (req, res) => {
     const { username, password } = req.query;
     console.log(username, password);
 
@@ -29,9 +29,11 @@ export const createUser = (req, res, next) => {
                 res.json({
                     status: 1,
                     message: 'User created successfully',
-                });
-            });
-        });
+                    username,
+                    token
+                })
+            })
+        })
     } catch (error) {
         console.error('Error:', error);
         res.json({
@@ -39,4 +41,6 @@ export const createUser = (req, res, next) => {
             message: 'An error occurred',
         });
     }
-};
+}
+
+export default createUser
