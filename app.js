@@ -1,9 +1,9 @@
 import express from 'express'
-import routes from './routes.js'
+import routers from './routers.js'
 
 const app = express()
 
-app.use('/api', routes)
+app.use('/api', routers)
 app.listen(3001, () => {
   console.log('server is running on http://127.0.0.1:3001');
 })
