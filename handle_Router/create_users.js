@@ -36,7 +36,6 @@ const createUser = (req, res) => {
             })
         })
     } catch (error) {
-        console.error('Error:', error);
         res.json({
             status: 0,
             message: 'An error occurred',

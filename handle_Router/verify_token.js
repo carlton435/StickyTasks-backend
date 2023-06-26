@@ -1,13 +1,16 @@
 import connection from "../APIs/connection_db.js";
 
-const verifySQL = 'SELECT * FROM stickytasks.userinformation WHERE token = ?';
+const verifyTokenSQL = 'SELECT * FROM stickytasks.userinformation WHERE token = ?';
 
 const verifyToken = (req, response) => {
     const { username, token } = req.query;
 
-    connection.query(verifySQL, [token], (err, res) => {
+    connection.query(verifyTokenSQL, [token], (err, res) => {
         if (err) {
-            console.error(err);
+            response.json({
+                status: 0,
+                message: 'Cannot find the user',
+            })
             return;
         }
 
