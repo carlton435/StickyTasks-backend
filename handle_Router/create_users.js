@@ -30,7 +30,8 @@ const createUser = (req, res) => {
                     status: 1,
                     message: 'User created successfully',
                     username,
-                    token
+                    token,
+                    id: result.insertId
                 })
             })
         })
