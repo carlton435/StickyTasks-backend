@@ -1,4 +1,4 @@
-import connection from "../APIs/connection_db.js";
+import connection from "../../APIs/connection_db.js";
 import jwt from 'jsonwebtoken';
 
 const addUserQuery = 'INSERT INTO stickytasks.userinformation (username, password, token) VALUES (?, ?, ?)';

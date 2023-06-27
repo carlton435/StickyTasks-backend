@@ -1,4 +1,4 @@
-import connection from "../APIs/connection_db.js";
+import connection from "../../APIs/connection_db.js";
 
 const verifyTokenSQL = 'SELECT * FROM stickytasks.userinformation WHERE token = ?';
 
