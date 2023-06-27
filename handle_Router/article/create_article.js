@@ -7,12 +7,12 @@ const addArticle = (req, res) => {
         if (err) {
             res.json({
                 status: 0,
-                message: '插入失败' + err
+                message: 'insert false' + err
             })
         }
         res.json({
             status: 1,
-            message: '插入成功',
+            message: 'insert success',
             data: result
         })
     })

@@ -7,12 +7,12 @@ const changeArticle = (req, res) => {
         if (err) {
             res.json({
                 status: 0,
-                message: '更新失败' + err,
+                message: 'update false' + err,
             })
         }
         res.json({
             status: 1,
-            message: '更新成功',
+            message: 'update success',
             data: result
         })
     })
