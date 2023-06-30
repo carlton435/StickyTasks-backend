@@ -1,8 +1,9 @@
 import express from 'express'
 import routers from './routers.js'
-import connection from './APIs/connection_db.js'
+import cors from 'cors'
 const app = express()
 
+app.use(cors())
 app.use('/api', routers)
 
 

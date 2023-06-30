@@ -10,10 +10,14 @@ const addArticle = (req, res) => {
                 message: 'insert false' + err
             })
         }
+        console.log(result);
         res.json({
             status: 1,
             message: 'insert success',
-            data: result
+            data: {
+                id: result.insertId,
+                username
+            }
         })
     })
 }

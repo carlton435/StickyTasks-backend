@@ -8,7 +8,7 @@ const createUser = (req, res) => {
     console.log(username, password);
 
     try {
-        jwt.sign({ username, password }, 'wawdasd', (err, token) => {
+        jwt.sign({ username, password }, 'wawdasd', async (err, token) => {
             if (err) {
                 console.error('Error signing JWT:', err);
                 return res.json({
@@ -17,7 +17,7 @@ const createUser = (req, res) => {
                 });
             }
 
-            connection.query(addUserQuery, [username, password, token], (err, result) => {
+            await connection.query(addUserQuery, [username, password, token], (err, result) => {
                 if (err) {
                     console.error('Error executing SQL query:', err);
                     return res.json({
